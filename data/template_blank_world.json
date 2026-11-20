@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 4,
+  "p0Revision": 1,
+  "p2Revision": 1,
+  "globalTime": 1,
+  "lastUpdated": "2026-11-21T00:00:00+08:00",
+  "meta": {
+    "id": "custom_world_template",
+    "title": "自定义世界 · 起始之地",
+    "subtitle": "Budget World Model v4 Universal Starter Skeleton",
+    "tileSize": 48,
+    "combatMode": "turn_based"
+  },
+  "assets": { "portraits": {}, "sprites": {}, "tiles": {}, "cgs": {}, "audio": {} },
+  "latestP0Response": null,
+  "executedActionIds": [],
+  "player": {
+    "name": "主角",
+    "portrait": "hero",
+    "mapId": "start_room",
+    "x": 5, "y": 5,
+    "level": 1, "exp": 0, "nextLevelExp": 100,
+    "hp": 100, "maxHp": 100, "mp": 30, "maxMp": 30,
+    "baseAtk": 12, "baseDef": 5, "gold": 50,
+    "equipment": { "weapon": null, "armor": null, "accessory": null },
+    "skills": [
+      { "id": "sk_strike", "name": "重击", "mpCost": 6, "power": 1.5, "kind": "damage", "desc": "基础强力攻击。" }
+    ],
+    "stats": { "身份": "待定" },
+    "inventory": [
+      { "id": "item_potion", "name": "基础恢复药", "qty": 2, "desc": "恢复 30 点生命值。", "healHp": 30 }
+    ],
+    "party": [],
+    "flags": {},
+    "actions": [
+      { "label": "状态 / 装备 / 技能", "icon": "🎒", "type": "open_menu", "tab": "status" },
+      { "label": "原地消磨时间 (Time +1)", "icon": "⏳", "type": "pass_time" },
+      { "label": "自由行动（发送游戏 Log）", "icon": "✨", "type": "ai_p0", "intent": "主角观察四周并发起自由行动", "needsUserInput": true }
+    ]
+  },
+  "enemies": {},
+  "quests": [],
+  "shops": {},
+  "lore": { "worldBg": "待创世会话填充世界观背景。", "cgGallery": [], "characterProfiles": [] },
+  "affairs": [],
+  "p1Cache": { "preparedForMap": "start_room", "adjacentHints": [] },
+  "behaviorLog": [],
+  "tiles": {
+    ".": { "name": "地面", "walkable": true, "color": "#3d6b47" },
+    ",": { "name": "道路", "walkable": true, "color": "#9c9484" },
+    "#": { "name": "墙壁", "walkable": false, "color": "#4d5666" },
+    "P": { "name": "出口", "walkable": true, "color": "#54427a" }
+  },
+  "maps": {
+    "start_room": {
+      "id": "start_room",
+      "name": "起始房间",
+      "grid": [
+        "#####P#####",
+        "#....,...#",
+        "#....,...#",
+        "#....,...#",
+        "#....,...#",
+        "#....,...#",
+        "#....,...#",
+        "###########"
+      ],
+      "objects": [
+        {
+          "id": "exit_north",
+          "name": "未知出口",
+          "x": 5, "y": 0, "solid": true, "icon": "🌀", "color": "#8b6ce8",
+          "actions": [
+            { "label": "踏入未知区域（AI P0 生成）", "icon": "🧭", "type": "portal", "advanceTime": true, "targetMapId": "next_area", "targetName": "未知新区域" }
+          ]
+        }
+      ]
+    }
+  }
+}
