@@ -2,7 +2,7 @@
 
 > **穷鬼那基于 Gemini 的重前端 AIRP**
 >
-> [English Version](./README_EN.md) | [运营规范与数据协议](./docs/SESSION_RULES.md)
+> [English Version](./README_EN.md) | [运营规范与数据协议](./docs/SESSION_RULES.md) | [👶 小白保姆级安装教程](./docs/BEGINNER_SETUP.md) | [🎮 开局模组库与创世指南](./starters/README.md)
 
 **丐版世界模型（Budget World Model）** 是一套“零自建服务器、零额外 API 费用”的**完整重前端 AI 驱动 2D RPG 引擎与单主会话并行子代理运营架构**。它完全依托 Google 生态（**Google Apps Script + Google Drive + Gmail + 单个 Gemini Master GM 会话并行调度子代理**），让你在浏览器独立标签页中体验完整的 2D RPG，同时享受由大模型持续演进的动态地图、活体 NPC 事务栏与暗线剧情。
 
@@ -25,13 +25,17 @@
 gaiban-world-model/
 ├── README.md                  # 中文说明与完整安装部署教程（默认）
 ├── README_EN.md               # English Documentation & Setup Guide
-├── apps-script/
+├── apps-script/                  # 【通用引擎框架】
 │   ├── Code.gs                # Google Apps Script 后端（云盘读写、统一 [RPG-LOG] 发信、自动清邮件）
 │   └── Index.html             # 完整重前端 2D RPG 引擎（v4）
-├── data/
+├── data/                        # 【通用数据结构与模板】
 │   └── rpg_world_data.json    # 初始世界数据结构（含双地图、回合制敌人、装备技能、事务栏示例）
-└── docs/
+│   └── template_blank_world.json  # 通用空白世界 JSON 骨架模板（v4）
+└── docs/                        # 【教程与运营规范】
+│   ├── BEGINNER_SETUP.md         # 小白保姆级安装教程（含可直接复制的 Gemini 提示词）
     └── SESSION_RULES.md       # 单主会话并行子代理运营规范与 16 项白名单协议
+└── starters/                      # 【开局模组库（与通用引擎解耦）】
+    └── README.md                  # 开局模组目录与「创世会话」自制题材指南（含西幻/赛博/武侠等题材）
 ```
 
 ## 完整安装与部署教程（3 分钟上手）
