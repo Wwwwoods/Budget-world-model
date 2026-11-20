@@ -1,0 +1,356 @@
+{
+  "schemaVersion": 4,
+  "p0Revision": 1,
+  "p2Revision": 1,
+  "globalTime": 1,
+  "lastUpdated": "2026-11-21T01:45:00+08:00",
+  "meta": {
+    "id": "budget_world_model_v4",
+    "title": "丐版世界模型 · 晨风边境",
+    "subtitle": "Budget World Model — A Poor Man's Gemini-Powered Heavy-Frontend AIRP",
+    "tileSize": 48,
+    "combatMode": "turn_based"
+  },
+  "assets": {
+    "portraits": {},
+    "sprites": {},
+    "tiles": {},
+    "cgs": {},
+    "audio": {}
+  },
+  "latestP0Response": null,
+  "executedActionIds": [],
+  "player": {
+    "name": "旅人",
+    "portrait": "hero",
+    "mapId": "village_square",
+    "x": 8,
+    "y": 8,
+    "level": 1,
+    "exp": 0,
+    "nextLevelExp": 100,
+    "hp": 100,
+    "maxHp": 100,
+    "mp": 35,
+    "maxMp": 35,
+    "baseAtk": 14,
+    "baseDef": 6,
+    "gold": 65,
+    "equipment": {
+      "weapon": { "id": "eq_iron_dagger", "name": "旅行短剑", "slot": "weapon", "atk": 5, "def": 0, "desc": "轻便顺手的铁制防身短剑。" },
+      "armor": { "id": "eq_cloth_cloak", "name": "防风旅袍", "slot": "armor", "atk": 0, "def": 4, "desc": "抵御晨风寒气的厚实斗篷。" },
+      "accessory": null
+    },
+    "skills": [
+      { "id": "sk_slash", "name": "疾风斩", "mpCost": 8, "power": 1.65, "kind": "damage", "desc": "凝聚风势的强力斩击，造成 1.65 倍攻击伤害。" },
+      { "id": "sk_mend", "name": "晨露愈合", "mpCost": 10, "power": 38, "kind": "heal", "desc": "调动微弱魔力恢复 38 点生命值。" },
+      { "id": "sk_focus", "name": "破雾凝神", "mpCost": 6, "power": 1.4, "kind": "buff_atk", "desc": "提升本场战斗下两次攻击的伤害（+40%）。" }
+    ],
+    "stats": {
+      "身份": "流浪旅人",
+      "声望": "初来乍到"
+    },
+    "inventory": [
+      { "id": "item_notebook", "name": "空白手记", "qty": 1, "desc": "记录旅途见闻与暗线线索的旧本子。" },
+      { "id": "item_herb", "name": "微风草药", "qty": 3, "desc": "随时服用，恢复 35 点生命值。", "healHp": 35 },
+      { "id": "item_mana_dew", "name": "蓝晶露水", "qty": 2, "desc": "恢复 20 点魔力值。", "healMp": 20 },
+      { "id": "eq_lucky_charm", "name": "古铜护符", "qty": 1, "slot": "accessory", "atk": 2, "def": 3, "maxHp": 15, "desc": "刻着北境星纹的旧护符，可装备于饰品栏。" }
+    ],
+    "party": [],
+    "flags": {},
+    "actions": [
+      { "label": "状态 / 装备 / 技能", "icon": "🎒", "type": "open_menu", "tab": "status" },
+      { "label": "原地消磨时间 (Time +1)", "icon": "⏳", "type": "pass_time" },
+      { "label": "自由行动（发送游戏 Log）", "icon": "✨", "type": "ai_p0", "intent": "主角停下脚步环顾四周，发起自由行动", "needsUserInput": true }
+    ]
+  },
+  "enemies": {
+    "mist_wisp": {
+      "id": "mist_wisp",
+      "name": "迷雾影魔",
+      "icon": "👻",
+      "portrait": "wisp",
+      "hp": 68,
+      "maxHp": 68,
+      "atk": 13,
+      "def": 4,
+      "expReward": 55,
+      "goldReward": 28,
+      "intentHint": "周身缠绕紫雾，似乎受遗迹钟声驱使。",
+      "skills": [{ "name": "暗雾侵蚀", "power": 1.35, "chance": 0.35 }],
+      "drops": [{ "id": "item_mist_shard", "name": "紫雾结晶", "qty": 1, "chance": 0.85, "desc": "从影魔身上剥落的微光晶体，游商卡琳似乎在收购。" }]
+    },
+    "ember_hound": {
+      "id": "ember_hound",
+      "name": "余烬猎犬",
+      "icon": "🐺",
+      "portrait": "hound",
+      "hp": 92,
+      "maxHp": 92,
+      "atk": 17,
+      "def": 6,
+      "expReward": 80,
+      "goldReward": 42,
+      "intentHint": "口衔火星，正沿着林缘试探村口防线。",
+      "skills": [{ "name": "火星扑咬", "power": 1.45, "chance": 0.4 }],
+      "drops": [{ "id": "eq_ember_blade", "name": "余烬长刃", "qty": 1, "slot": "weapon", "atk": 11, "def": 1, "chance": 0.6, "desc": "刀锋残留微温的精钢武器。" }]
+    }
+  },
+  "quests": [
+    {
+      "id": "q_mist_investigate",
+      "title": "迷雾北境的异响",
+      "status": "进行中",
+      "desc": "村长艾伦提到北方迷雾小径最近夜里常有火光与钟声，去北方迷雾森林调查真相。"
+    }
+  ],
+  "shops": {
+    "shop_karin": {
+      "merchantName": "游商卡琳",
+      "lastRefreshTime": 1,
+      "items": [
+        { "id": "item_herb", "name": "微风草药", "price": 15, "desc": "恢复 35 点生命值", "healHp": 35 },
+        { "id": "item_mana_dew", "name": "蓝晶露水", "price": 18, "desc": "恢复 20 点魔力值", "healMp": 20 },
+        { "id": "eq_steel_sword", "name": "边境钢剑", "price": 55, "slot": "weapon", "atk": 9, "def": 1, "desc": "商队护卫常用的耐用钢剑（攻击+9，防御+1）" },
+        { "id": "eq_leather_vest", "name": "硬皮护甲", "price": 50, "slot": "armor", "atk": 0, "def": 8, "maxHp": 10, "desc": "结实的野牛皮护甲（防御+8，生命+10）" },
+        { "id": "item_lantern", "name": "防雾铜灯", "price": 35, "desc": "在迷雾森林中提供视野与护身" }
+      ]
+    }
+  },
+  "lore": {
+    "worldBg": "晨风边境曾是古王国北疆的驿站，十年前一场大雾吞没了北侧遗迹。如今商路仅剩南端畅通，但近几日迷雾边缘再度传出金属敲击与低语声。",
+    "cgGallery": [
+      { "id": "cg_dawn_plaza", "title": "晨风广场的薄雾", "caption": "朝阳照在湿润的石板路上，北方林梢隐约浮现紫色微光。", "imageUrl": "", "unlocked": true }
+    ],
+    "characterProfiles": [
+      { "id": "npc_elder", "name": "村长艾伦", "portrait": "elder", "personality": "沉稳老练、略微保守，深藏关于古遗迹的往事。", "catchphrase": "按老规矩来说……", "backstory": "年轻时曾是北疆测绘员，亲眼见过迷雾降临之夜。" },
+      { "id": "npc_merchant", "name": "游商卡琳", "portrait": "merchant", "personality": "精明爽朗、消息灵通，重利但讲信用。", "catchphrase": "这买卖你不亏！", "backstory": "常年往返南北商队，手头总有些来路神秘的小物件。" },
+      { "id": "npc_ranger", "name": "守林人莱恩", "portrait": "ranger", "personality": "寡言敏锐、熟悉林间异象，对擅闯者警惕但敬重强者。", "catchphrase": "听风声，别乱踩。", "backstory": "独自在北方迷雾林缘巡逻了五年，记录着每一次钟声响起的时间。" }
+    ]
+  },
+  "affairs": [
+    {
+      "id": "affair_village_fire_watch",
+      "scope": "map",
+      "targetId": "village_square",
+      "targetName": "晨风广场（地图暗线）",
+      "location": "village_square",
+      "currentTask": "北方暗火逼近村口，守夜人正在紧盯林缘动静",
+      "countdown": 6,
+      "onTriggerReaction": "若玩家在倒计时归零前询问村长或巡查北门，可触发提前布防分支。",
+      "nextAffair": {
+        "location": "village_square",
+        "currentTask": "【已超时演进】村口木栅燃起零星余火，村民紧急撤入广场中央！",
+        "countdown": 4,
+        "onTriggerReaction": "村民陷入慌乱，向玩家求助灭火或追击纵火影魔。"
+      }
+    },
+    {
+      "id": "affair_karin_caravan",
+      "scope": "npc",
+      "targetId": "npc_merchant",
+      "targetName": "游商卡琳",
+      "location": "village_square",
+      "currentTask": "在晨风广场清点货物、等待北境紫雾结晶",
+      "countdown": 4,
+      "onTriggerReaction": "你打断卡琳清点货单，她压低声音笑道：「这买卖你不亏！你要是能从北林带回紫雾结晶，我给你留一件黑市好货。」",
+      "nextAffair": {
+        "location": "northern_mist_woods",
+        "x": 5,
+        "y": 9,
+        "currentTask": "卡琳收摊前往北方迷雾森林边缘亲自接货",
+        "countdown": 4,
+        "onTriggerReaction": "在林缘偶遇背着行囊的卡琳，她正警惕地张望迷雾深处。"
+      }
+    }
+  ],
+  "p1Cache": {
+    "preparedForMap": "village_square",
+    "adjacentHints": ["北方迷雾森林（northern_mist_woods）已内置可探索地图、守林人莱恩与迷雾影魔遭遇战。"]
+  },
+  "behaviorLog": [],
+  "tiles": {
+    ".": { "name": "草地", "walkable": true, "color": "#3d6b47" },
+    ",": { "name": "石板路", "walkable": true, "color": "#9c9484" },
+    "=": { "name": "木质地板", "walkable": true, "color": "#8a6642" },
+    "~": { "name": "池水", "walkable": false, "color": "#2b6e91" },
+    "#": { "name": "石墙", "walkable": false, "color": "#4d5666" },
+    "T": { "name": "古树", "walkable": false, "color": "#254d32" },
+    "P": { "name": "区域出口", "walkable": true, "color": "#54427a" },
+    "M": { "name": "迷雾苔地", "walkable": true, "color": "#32494d" }
+  },
+  "maps": {
+    "village_square": {
+      "id": "village_square",
+      "name": "晨风广场",
+      "grid": [
+        "TTTTTTT,,P,,TTTTTT",
+        "TT.....,,,,,....TT",
+        "T..####,,,,,....TT",
+        "T..#==#,,,,,..~..T",
+        "T..#==#,,,,,~~~~.T",
+        "T..#,##,,,,,~~~..T",
+        "T....,,,,,,,.....T",
+        "T....,,,,,,,.....T",
+        "T....,,,,,,,.....T",
+        "T..T.,,,,,,,..T..T",
+        "T....,,,,,,,.....T",
+        "TT...,,,,,,,....TT",
+        "TTTTT,,,,,,,TTTTTT",
+        "TTTTTTTTTTTTTTTTTT"
+      ],
+      "objects": [
+        {
+          "id": "npc_elder",
+          "name": "村长艾伦",
+          "x": 6,
+          "y": 6,
+          "solid": true,
+          "icon": "🧙",
+          "color": "#d9a441",
+          "portrait": "elder",
+          "actions": [
+            {
+              "label": "交谈",
+              "icon": "💬",
+              "type": "dialogue",
+              "lines": [
+                { "speaker": "村长艾伦", "portrait": "elder", "text": "按老规矩来说……新来的旅人得先记住两件事：时间（Time）会随着你换图和关键行动推进，而北方迷雾森林里已经出现影魔了。" },
+                { "speaker": "村长艾伦", "portrait": "elder", "text": "出发前不妨先打开菜单把背包里的【古铜护符】装备上，再去北门找守林人莱恩碰头。" }
+              ],
+              "choices": [
+                { "label": "记下提醒（Time +1）", "advanceTime": true, "log": "听取了村长艾伦关于时间流动与北境影魔的说明", "setFlag": { "talked_elder": true }, "reply": { "speaker": "旅人", "portrait": "hero", "text": "明白了，我会先整备装备再探北林。" } },
+                { "label": "自由追问北境隐情（AI P0）", "type": "ai_p0", "intent": "向【村长艾伦】自由追问北境迷雾与村口暗火的隐情", "needsUserInput": true }
+              ]
+            },
+            { "label": "自由交涉 / 提问", "icon": "🗣️", "type": "ai_p0", "intent": "与【村长艾伦】进行实时自由交涉", "needsUserInput": true }
+          ]
+        },
+        {
+          "id": "npc_merchant",
+          "name": "游商卡琳",
+          "x": 11,
+          "y": 7,
+          "solid": true,
+          "icon": "🛒",
+          "color": "#c95b5b",
+          "portrait": "merchant",
+          "actions": [
+            { "label": "打开货摊", "icon": "💰", "type": "open_shop", "shopId": "shop_karin" },
+            { "label": "打听商路消息 / 砍价", "icon": "🗣️", "type": "ai_p0", "intent": "与【游商卡琳】自由交谈、打听消息或砍价", "needsUserInput": true }
+          ]
+        },
+        {
+          "id": "prop_chest",
+          "name": "木屋补给箱",
+          "x": 4,
+          "y": 3,
+          "solid": true,
+          "icon": "📦",
+          "color": "#b3743b",
+          "actions": [
+            {
+              "label": "打开检查（Time +1）",
+              "icon": "🔍",
+              "type": "local_effect",
+              "advanceTime": true,
+              "onceFlag": "opened_demo_chest",
+              "alreadyDoneText": "箱子已经被翻看过了，里面空空如也。",
+              "log": "打开木屋补给箱，获得 25 金币与【旧铜币】",
+              "whitelistActions": [
+                { "actionId": "local_chest_1", "type": "MODIFY_GOLD", "delta": 25 },
+                { "actionId": "local_chest_2", "type": "ADD_ITEM", "item": { "id": "old_coin", "name": "旧铜币", "qty": 1, "desc": "刻着古遗迹纹路的旧铜币。" } }
+              ],
+              "dialogue": [{ "speaker": "旁白", "text": "你掀开木箱，找到了 25 枚金币和一枚刻着奇异纹路的【旧铜币】！" }]
+            }
+          ]
+        },
+        {
+          "id": "exit_north_mist",
+          "name": "北方迷雾小径",
+          "x": 9,
+          "y": 0,
+          "solid": true,
+          "icon": "🌀",
+          "color": "#8b6ce8",
+          "actions": [
+            { "label": "前往北方迷雾森林（Time +1）", "icon": "🧭", "type": "portal", "advanceTime": true, "targetMapId": "northern_mist_woods", "targetName": "北方迷雾森林", "targetX": 8, "targetY": 10 }
+          ]
+        }
+      ]
+    },
+    "northern_mist_woods": {
+      "id": "northern_mist_woods",
+      "name": "北方迷雾森林",
+      "grid": [
+        "TTTTTTT##P##TTTTTT",
+        "TTMMMMM,,,,,MMMMTT",
+        "TMM....,,,,,....MT",
+        "TM..T..,,,,,..T.MT",
+        "TM.....,,,,,....MT",
+        "TM.~~..,,,,,....MT",
+        "TM.~~~.,,,,,,,..MT",
+        "TM.....,,,,,,,..MT",
+        "TM..T..,,,,,....MT",
+        "TMM....,,,,,...MMT",
+        "TTMMMMM,,,,,MMMMTT",
+        "TTTTTTT,,P,,TTTTTT",
+        "TTTTTTTTTTTTTTTTTT"
+      ],
+      "objects": [
+        {
+          "id": "npc_ranger",
+          "name": "守林人莱恩",
+          "x": 6,
+          "y": 7,
+          "solid": true,
+          "icon": "🏹",
+          "color": "#4f9a78",
+          "portrait": "ranger",
+          "actions": [
+            { "label": "交谈", "icon": "💬", "type": "dialogue", "lines": [{ "speaker": "守林人莱恩", "portrait": "ranger", "text": "听风声，别乱踩。北边石门前晃悠着一只迷雾影魔，你可以直接迎战练手，也可以在战斗里尝试自由交涉。" }] },
+            { "label": "自由询问遗迹情报（AI P0）", "icon": "🗣️", "type": "ai_p0", "intent": "向【守林人莱恩】打听北方遗迹石门与钟声来源", "needsUserInput": true }
+          ]
+        },
+        {
+          "id": "enemy_mist_wisp_1",
+          "name": "游荡的迷雾影魔",
+          "x": 9,
+          "y": 4,
+          "solid": true,
+          "icon": "👻",
+          "color": "#9a66d9",
+          "portrait": "wisp",
+          "actions": [
+            { "label": "迎战迷雾影魔（回合制战斗）", "icon": "⚔️", "type": "start_battle", "enemyId": "mist_wisp", "removeOnWin": true },
+            { "label": "尝试远距离呼喊/观察（AI P0）", "icon": "🗣️", "type": "ai_p0", "intent": "在北方迷雾森林尝试观察或与【游荡的迷雾影魔】隔空交流", "needsUserInput": true }
+          ]
+        },
+        {
+          "id": "exit_ruins_gate",
+          "name": "古遗迹石门（未探索）",
+          "x": 9,
+          "y": 0,
+          "solid": true,
+          "icon": "⛩️",
+          "color": "#a855f7",
+          "actions": [
+            { "label": "推开石门进入深处（AI P0 生成新地图）", "icon": "🧭", "type": "portal", "advanceTime": true, "targetMapId": "ancient_ruins_hall", "targetName": "古遗迹钟楼大厅" }
+          ]
+        },
+        {
+          "id": "exit_back_village",
+          "name": "返回晨风广场",
+          "x": 9,
+          "y": 11,
+          "solid": true,
+          "icon": "🌀",
+          "color": "#4f9a78",
+          "actions": [
+            { "label": "返回晨风广场（Time +1）", "icon": "🧭", "type": "portal", "advanceTime": true, "targetMapId": "village_square", "targetName": "晨风广场", "targetX": 9, "targetY": 1 }
+          ]
+        }
+      ]
+    }
+  }
+}
