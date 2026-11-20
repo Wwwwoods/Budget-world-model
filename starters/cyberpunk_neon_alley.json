@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 4,
+  "p0Revision": 1,
+  "p2Revision": 1,
+  "globalTime": 1,
+  "lastUpdated": "2026-11-21T02:30:00+08:00",
+  "meta": {
+    "id": "starter_cyberpunk_neon",
+    "title": "霓虹九区 · 债屋雨夜",
+    "subtitle": "赛博朋克侦探开局 — Budget World Model",
+    "tileSize": 48,
+    "combatMode": "turn_based"
+  },
+  "assets": { "portraits": {}, "sprites": {}, "tiles": {}, "cgs": {}, "audio": {} },
+  "latestP0Response": null,
+  "executedActionIds": [],
+  "player": {
+    "name": "K-09（赏金黑客）",
+    "portrait": "hero",
+    "mapId": "neon_clinic_street",
+    "x": 6, "y": 6,
+    "level": 1, "exp": 0, "nextLevelExp": 100,
+    "hp": 95, "maxHp": 95, "mp": 45, "maxMp": 45,
+    "baseAtk": 15, "baseDef": 6, "gold": 120,
+    "equipment": {
+      "weapon": { "id": "eq_stun_baton", "name": "高频电击棍", "slot": "weapon", "atk": 6, "def": 0, "desc": "廉价但足以瘫痪民用义体的近战电棍。" },
+      "armor": { "id": "eq_rain_trench", "name": "防酸雨风衣", "slot": "armor", "atk": 0, "def": 5, "desc": "内衬 Kevlar 纤维的旧风衣。" },
+      "accessory": null
+    },
+    "skills": [
+      { "id": "sk_emp_spike", "name": "EMP 脉冲入侵", "mpCost": 10, "power": 1.75, "kind": "damage", "desc": "向目标义体注入过载电流，造成 1.75 倍伤害。" },
+      { "id": "sk_nano_patch", "name": "纳米止血喷雾", "mpCost": 10, "power": 36, "kind": "heal", "desc": "激活皮下修复纳米虫，恢复 36 点生命。" },
+      { "id": "sk_overclock", "name": "神经超频", "mpCost": 8, "power": 1.45, "kind": "buff_atk", "desc": "短时间超频反射神经，接下来两次攻击伤害 +45%。" }
+    ],
+    "stats": { "身份": "无证私家黑客", "欠款": "5000 信用点" },
+    "inventory": [
+      { "id": "item_stim", "name": "肾上腺素针", "qty": 2, "desc": "恢复 35 点生命值。", "healHp": 35 },
+      { "id": "item_coolant", "name": "神经冷却剂", "qty": 2, "desc": "恢复 22 点算力（MP）。", "healMp": 22 },
+      { "id": "eq_deck_chip", "name": "二手破解芯片", "qty": 1, "slot": "accessory", "atk": 3, "def": 1, "maxMp": 10, "desc": "装入脑机接口后提升算力与入侵伤害。" }
+    ],
+    "party": [],
+    "flags": {},
+    "actions": [
+      { "label": "义体 / 装备 / 技能", "icon": "🦾", "type": "open_menu", "tab": "status" },
+      { "label": "街角抽烟消磨时间 (Time +1)", "icon": "⏳", "type": "pass_time" },
+      { "label": "黑入终端 / 自由行动（AI P0）", "icon": "💻", "type": "ai_p0", "intent": "主角在雨夜霓虹街区发起自由调查或黑客行动", "needsUserInput": true }
+    ]
+  },
+  "enemies": {
+    "debt_drone": {
+      "id": "debt_drone",
+      "name": "财团讨债无人机",
+      "icon": "🛸",
+      "portrait": "wisp",
+      "hp": 72, "maxHp": 72, "atk": 14, "def": 5,
+      "expReward": 60, "goldReward": 45,
+      "intentHint": "红色扫描光束锁定了你的脑机编号，发出冰冷催缴警报。",
+      "skills": [{ "name": "高压泰瑟电弧", "power": 1.4, "chance": 0.35 }],
+      "drops": [{ "id": "item_encrypted_drive", "name": "加密催缴芯片", "qty": 1, "chance": 0.9, "desc": "里面藏着债主派单的加密坐标。" }]
+    }
+  },
+  "quests": [
+    { "id": "q_neon_debt", "title": "72 小时还债期限", "status": "进行中", "desc": "巨企「新星信贷」的讨债无人机已封锁街口，去地下黑市找情报贩子老鬼接一单高风险委托。" }
+  ],
+  "shops": {
+    "shop_ripperdoc": {
+      "merchantName": "义体医生陈伯",
+      "lastRefreshTime": 1,
+      "items": [
+        { "id": "item_stim", "name": "肾上腺素针", "price": 20, "desc": "恢复 35 点生命", "healHp": 35 },
+        { "id": "item_coolant", "name": "神经冷却剂", "price": 20, "desc": "恢复 22 点算力", "healMp": 22 },
+        { "id": "eq_mono_blade", "name": "单分子短刃", "price": 85, "slot": "weapon", "atk": 11, "def": 0, "desc": "黑市流出的高周波近战武器（攻击+11）" }
+      ]
+    }
+  },
+  "lore": {
+    "worldBg": "2099 年的霓虹九区终年下着微酸细雨。上层浮空城霓虹闪烁，下层雨巷则是无证义体医生、黑市数据贩与财团讨债无人机的猎场。",
+    "cgGallery": [
+      { "id": "cg_rain_clinic", "title": "九区雨夜诊所", "caption": "青紫色全息招牌倒映在积水里，诊所卷帘门半开。", "imageUrl": "", "unlocked": true }
+    ],
+    "characterProfiles": [
+      { "id": "npc_doc", "name": "义体医生陈伯", "portrait": "elder", "personality": "嘴毒心软、见惯生死，绝不赊账但偶尔给忠告。", "catchphrase": "命是自己的，芯片是租来的。", "backstory": "曾是巨企生物工程首席，十年前隐姓埋名躲进九区。" }
+    ]
+  },
+  "affairs": [
+    {
+      "id": "affair_corp_sweep",
+      "scope": "map",
+      "targetId": "neon_clinic_street",
+      "targetName": "九区诊所街（宵禁扫描）",
+      "location": "neon_clinic_street",
+      "currentTask": "财团清道夫小队正在逼近九区外环，6 刻钟后启动全街生物扫描",
+      "countdown": 6,
+      "onTriggerReaction": "街角广播响起倒计时警告，你可以找陈伯买伪造信号器或立刻撤入地下黑市。",
+      "nextAffair": {
+        "location": "neon_clinic_street",
+        "currentTask": "【宵禁生效】清道夫无人机封锁主干道，街区进入高危戒严！",
+        "countdown": 5,
+        "onTriggerReaction": "街面巡逻火力全开，暴露行踪将直接触发遭遇战。"
+      }
+    }
+  ],
+  "p1Cache": { "preparedForMap": "neon_clinic_street", "adjacentHints": ["地下黑市数据廊（black_market_corridor）已连通。"] },
+  "behaviorLog": [],
+  "tiles": {
+    ".": { "name": "湿润柏油", "walkable": true, "color": "#1e2433" },
+    ",": { "name": "霓虹人行道", "walkable": true, "color": "#2f364d" },
+    "#": { "name": "金属建筑", "walkable": false, "color": "#111520" },
+    "P": { "name": "地铁/黑市入口", "walkable": true, "color": "#06b6d4" }
+  },
+  "maps": {
+    "neon_clinic_street": {
+      "id": "neon_clinic_street",
+      "name": "九区雨夜诊所街",
+      "grid": [
+        "######P######",
+        "#..,,...,,..#",
+        "#..##,,,##..#",
+        "#..##,,,##..#",
+        "#....,,,....#",
+        "#....,,,....#",
+        "#....,,,....#",
+        "#....,,,....#",
+        "#############"
+      ],
+      "objects": [
+        {
+          "id": "npc_doc", "name": "义体医生陈伯", "x": 4, "y": 4, "solid": true, "icon": "🩺", "color": "#06b6d4", "portrait": "elder",
+          "actions": [
+            { "label": "购买义体/补给", "icon": "💊", "type": "open_shop", "shopId": "shop_ripperdoc" },
+            { "label": "打听清道夫动向（AI P0）", "icon": "🗣️", "type": "ai_p0", "intent": "向【义体医生陈伯】打听财团讨债与地下黑市的情报", "needsUserInput": true }
+          ]
+        },
+        {
+          "id": "enemy_drone_1", "name": "讨债无人机", "x": 8, "y": 3, "solid": true, "icon": "🛸", "color": "#ec4899", "portrait": "wisp",
+          "actions": [
+            { "label": "强行击毁（回合制战斗）", "icon": "⚔️", "type": "start_battle", "enemyId": "debt_drone", "removeOnWin": true },
+            { "label": "尝试伪造信号欺骗（AI P0）", "icon": "💻", "type": "ai_p0", "intent": "尝试用黑客手段伪造身份信号欺骗【讨债无人机】", "needsUserInput": true }
+          ]
+        },
+        {
+          "id": "exit_market", "name": "地下黑市入口", "x": 6, "y": 0, "solid": true, "icon": "🚇", "color": "#06b6d4",
+          "actions": [
+            { "label": "潜入地下黑市数据廊（AI P0 生成）", "icon": "🧭", "type": "portal", "advanceTime": true, "targetMapId": "black_market_corridor", "targetName": "地下黑市数据廊" }
+          ]
+        }
+      ]
+    }
+  }
+}
